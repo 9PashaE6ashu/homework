@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="@android:dimen/app_icon_size"
+        android:minWidth="@android:dimen/app_icon_size"
+        android:layout_marginHorizontal="@android:dimen/app_icon_size"
+        android:layout_marginTop="@android:dimen/app_icon_size"
+        android:gravity="center_vertical|center"
+        android:text="@string/number"></TextView>
+
+
+
+</RelativeLayout>
