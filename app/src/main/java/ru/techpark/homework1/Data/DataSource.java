@@ -1,16 +1,16 @@
 package ru.techpark.homework1.Data;
 
+import android.graphics.Color;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import android.graphics.Color;
 
 
 public class DataSource {
     private static List<MyData> data = null;
     private static DataSource sInstance;
 
-    private static int[] mColors = new int[]{
+    private static final int[] mColors = new int[]{
             Color.RED,
             Color.BLUE
     };
@@ -18,7 +18,7 @@ public class DataSource {
     private DataSource() {
         data = new ArrayList<>();
 
-        for (int i = 0; i < 100; ) {
+        for (int i = 0; i < CommonConst.num; ) {
             int color = mColors[isOdd(i)];
             data.add(new MyData("" + (++i), color));
         }
@@ -50,8 +50,8 @@ public class DataSource {
             this.color = color;
         }
 
-        public String count;
-        public int color;
+        public final String count;
+        public final int color;
     }
 
 

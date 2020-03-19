@@ -8,20 +8,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-import ru.techpark.homework1.Data.DataSource;
-
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import java.util.List;
 import java.util.Objects;
 
+import ru.techpark.homework1.Data.DataSource;
 import ru.techpark.homework1.MainActivity;
 import ru.techpark.homework1.R;
 
@@ -57,7 +53,7 @@ public class FirstFragment extends Fragment {
 
     class MyDataAdapter extends RecyclerView.Adapter<viewHolder> {
 
-        List<DataSource.MyData> data;
+        final List<DataSource.MyData> data;
 
         private MyDataAdapter(List<DataSource.MyData> data) {
             this.data = data;

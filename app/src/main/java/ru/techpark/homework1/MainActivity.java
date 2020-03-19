@@ -4,18 +4,18 @@ package ru.techpark.homework1;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import ru.techpark.homework1.Data.CommonConst;
-import ru.techpark.homework1.Fragments.FirstFragment;
-import ru.techpark.homework1.Fragments.SecondFragment;
-import ru.techpark.homework1.Interfaces.OnItemSelectedListener;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import ru.techpark.homework1.Data.CommonConst;
+import ru.techpark.homework1.Data.DataSource;
+import ru.techpark.homework1.Fragments.FirstFragment;
+import ru.techpark.homework1.Fragments.SecondFragment;
 
-public class MainActivity extends AppCompatActivity implements OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -29,16 +29,17 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
             }
             transaction.addToBackStack(null);
             transaction.commit();
+        } else {
+            CommonConst.num = savedInstanceState.getInt(CommonConst.EXTRA_NUM);
         }
 
     }
 
     @Override
     public void onBackPressed() {
-        if(getSupportFragmentManager().getBackStackEntryCount() == 1) {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
             moveTaskToBack(false);
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }
@@ -57,4 +58,9 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
                 .commit();
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(CommonConst.EXTRA_NUM, DataSource.getInstance().getData().size());
+    }
 }

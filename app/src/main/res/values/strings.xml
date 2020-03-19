@@ -3,4 +3,5 @@
     <string name="app_name"> Homework №1</string>
     <string name="number">0</string>
     <string name="NUM">0</string>
+    <string name="add_number">Press me to add number</string>
 </resources>
